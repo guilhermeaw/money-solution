@@ -1,7 +1,7 @@
 import { sign } from 'jsonwebtoken';
 
-import { authConfig } from '@modules/config/auth';
 import AppError from '@shared/errors/AppError';
+import { authConfig } from '@config/auth';
 import User from '../entities/User';
 import BCryptHashProvider from '../providers/BCryptHashProvider';
 import UsersRepository from '../repositories/UsersRepository';

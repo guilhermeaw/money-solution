@@ -11,6 +11,7 @@ const AppDataSource = new DataSource({
   entities: ['src/modules/**/entities/*.ts'],
   migrations: ['src/shared/database/migrations/*.ts'],
   migrationsTableName: 'migrations',
+  migrationsRun: true,
 });
 
 export const initializeDataSource = () => {
