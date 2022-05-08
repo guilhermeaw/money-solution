@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { Exclude } from 'class-transformer';
 
-@Entity()
+@Entity('users')
 export default class User {
   @PrimaryGeneratedColumn('increment')
   id: number;
