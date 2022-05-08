@@ -17,9 +17,9 @@ export default class UsersRepository {
     return user;
   }
 
-  public async findById(id: number): Promise<User | null> {
+  public async findByEmail(email: string): Promise<User | null> {
     return this.ormRepository.findOne({
-      where: { id },
+      where: { email },
     });
   }
 }
