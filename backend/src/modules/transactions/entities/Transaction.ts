@@ -32,9 +32,9 @@ export default class Transaction {
   category: string;
 
   @Column()
-  user_id: string;
+  user_id: number;
 
-  @ManyToOne(() => User)
+  @ManyToOne(() => User, { eager: true })
   @JoinColumn({ name: 'user_id' })
   user: User;
 
