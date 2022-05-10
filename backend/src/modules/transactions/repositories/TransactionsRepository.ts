@@ -19,4 +19,12 @@ export default class TransactionsRepository {
 
     return transaction;
   }
+
+  public async listByUserId(user_id: number): Promise<Transaction[]> {
+    return this.ormRepository.find({
+      where: {
+        user_id,
+      },
+    });
+  }
 }
