@@ -4,7 +4,7 @@ import CreateTransactionService from '../services/CreateTransactionService';
 
 export default class TransactionsController {
   public async create(request: Request, response: Response): Promise<Response> {
-    const { user_id } = request.headers;
+    const user_id = request.user.id;
     const { title, amount, type, category } = request.body;
 
     const transaction = await new CreateTransactionService().execute({
