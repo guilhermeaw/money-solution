@@ -20,7 +20,6 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: 'Barlow, sans-serif',
-    allVariants: { color: '#123952' },
     h1: {
       fontWeight: 600,
       fontSize: '3rem',

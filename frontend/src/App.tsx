@@ -1,11 +1,12 @@
-import { CssBaseline, ThemeProvider, Typography } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import { Routes } from './routes';
 
 import theme from './styles/theme';
 
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
-      <Typography variant="h1">Money Solutions</Typography>
+      <Routes />
       <CssBaseline />
     </ThemeProvider>
   );
