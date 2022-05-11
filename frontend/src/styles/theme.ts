@@ -30,11 +30,11 @@ const theme = createTheme({
     },
     h3: {
       fontWeight: 600,
-      fontSize: '2rem',
+      fontSize: '1.5rem',
     },
     h4: {
       fontWeight: 600,
-      fontSize: '2rem',
+      fontSize: '1rem',
     },
     button: {
       textTransform: 'none',
