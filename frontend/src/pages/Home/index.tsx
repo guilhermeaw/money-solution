@@ -3,6 +3,7 @@ import { Card, Typography } from '@mui/material';
 import { MainContainer } from '../../components/MainContainer';
 import { TransactionType } from '../../models/Transaction';
 import { useFetchMyTransactions } from '../../services/queries';
+import { formatCurrency } from '../../utils/formatCurrency';
 
 const HomePage = () => {
   const { data, isLoading } = useFetchMyTransactions();
@@ -29,10 +30,7 @@ const HomePage = () => {
                 transaction.type === TransactionType.INCOME ? 'green' : 'red'
               }
             >
-              {Number(transaction.amount).toLocaleString('pt-br', {
-                style: 'currency',
-                currency: 'BRL',
-              })}
+              {formatCurrency(Number(transaction.amount))}
             </Typography>
           </Card>
         ))
