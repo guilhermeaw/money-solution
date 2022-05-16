@@ -20,6 +20,10 @@ export default class TransactionsRepository {
     return transaction;
   }
 
+  public async delete(id: number): Promise<void> {
+    this.ormRepository.delete({ id });
+  }
+
   public async listByUserId(user_id: number): Promise<Transaction[]> {
     return this.ormRepository.find({
       where: {

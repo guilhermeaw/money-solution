@@ -2,6 +2,7 @@ import { instanceToPlain } from 'class-transformer';
 import { Request, Response } from 'express';
 
 import CreateTransactionService from '../services/CreateTransactionService';
+import DeleteTransactionService from '../services/DeleteTransactionService';
 import ListMyTransactionsService from '../services/ListMyTransactionsService';
 
 export default class TransactionsController {
@@ -18,6 +19,14 @@ export default class TransactionsController {
     });
 
     return response.json(transaction);
+  }
+
+  public async delete(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
+
+    await new DeleteTransactionService().execute(id);
+
+    return response.status(204).json();
   }
 
   public async listMy(request: Request, response: Response): Promise<Response> {
