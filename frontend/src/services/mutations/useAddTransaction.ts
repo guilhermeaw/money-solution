@@ -19,5 +19,9 @@ export const useAddTransaction = () => {
           type,
         })
         .then(response => response.data),
+    {
+      onError: error => window.alert(error.message),
+      onSuccess: () => window.alert('Transação adicionada com sucesso.'),
+    },
   );
 };
