@@ -22,7 +22,7 @@ export default class Transaction {
   @Column()
   title: string;
 
-  @Column()
+  @Column({ type: 'money' })
   amount: number;
 
   @Column('enum', { enum: TransactionType })

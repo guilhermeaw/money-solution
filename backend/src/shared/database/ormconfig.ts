@@ -9,9 +9,7 @@ const AppDataSource = new DataSource({
   password: 'postgres',
   database: 'money-solutions',
   entities: ['src/modules/**/entities/*.ts'],
-  migrations: ['src/shared/database/migrations/*.ts'],
-  migrationsTableName: 'migrations',
-  migrationsRun: true,
+  synchronize: true,
 });
 
 export const initializeDataSource = () => {
