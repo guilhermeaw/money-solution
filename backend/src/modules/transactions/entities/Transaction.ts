@@ -8,6 +8,7 @@ import {
 } from 'typeorm';
 
 import User from '@modules/users/entities/User';
+import TransactionCategory from './TransactionCategory';
 
 export enum TransactionType {
   INCOME = 'income',
@@ -29,7 +30,11 @@ export default class Transaction {
   type: TransactionType;
 
   @Column()
-  category: string;
+  category_id: number;
+
+  @ManyToOne(() => TransactionCategory, { eager: true })
+  @JoinColumn({ name: 'category_id' })
+  category: TransactionCategory;
 
   @Column()
   user_id: number;

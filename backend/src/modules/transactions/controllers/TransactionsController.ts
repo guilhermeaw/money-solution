@@ -8,11 +8,11 @@ import ListMyTransactionsService from '../services/ListMyTransactionsService';
 export default class TransactionsController {
   public async create(request: Request, response: Response): Promise<Response> {
     const user_id = request.user.id;
-    const { title, amount, type, category } = request.body;
+    const { title, amount, type, category_id } = request.body;
 
     const transaction = await new CreateTransactionService().execute({
       amount,
-      category,
+      category_id,
       title,
       type,
       user_id: Number(user_id),

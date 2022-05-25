@@ -11,14 +11,14 @@ export default class CreateTransactionService {
 
   public async execute({
     amount,
-    category,
+    category_id,
     title,
     type,
     user_id,
   }: ICreateTransactionDTO): Promise<Transaction> {
     return this.transactionsRepository.create({
       amount,
-      category,
+      category_id,
       title,
       type,
       user_id,
