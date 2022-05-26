@@ -19,6 +19,10 @@ export default class TransactionCategoriesRepository {
     return category;
   }
 
+  public async findByTitle(title: string): Promise<TransactionCategory[]> {
+    return this.ormRepository.find({ where: { title } });
+  }
+
   public async listAll(): Promise<TransactionCategory[]> {
     return this.ormRepository.find();
   }

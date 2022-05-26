@@ -5,7 +5,7 @@ export default class TransactionCategory {
   @PrimaryGeneratedColumn('increment')
   id: number;
 
-  @Column()
+  @Column({ unique: true })
   title: string;
 
   @Column({ type: 'text' })
