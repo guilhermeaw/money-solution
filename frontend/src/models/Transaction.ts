@@ -1,3 +1,5 @@
+import { TransactionCategory } from './TransactionCategory';
+
 export enum TransactionType {
   INCOME = 'income',
   OUTCOME = 'outcome',
@@ -8,6 +10,6 @@ export interface Transaction {
   title: string;
   amount: number;
   type: TransactionType;
-  category_id: number;
+  category: TransactionCategory;
   created_at: Date;
 }

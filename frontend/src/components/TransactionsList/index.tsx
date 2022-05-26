@@ -1,4 +1,4 @@
-import { Card, IconButton, Stack, Typography } from '@mui/material';
+import { Card, Chip, IconButton, Stack, Typography } from '@mui/material';
 import { DeleteOutline as DeleteOutlineIcon } from '@mui/icons-material';
 
 import { TransactionType } from '../../models/Transaction';
@@ -43,7 +43,10 @@ export const TransactionsList = () => {
         >
           <Stack direction="row" justifyContent="space-between">
             <Stack>
-              <Typography variant="h3">{transaction.title}</Typography>
+              <Stack direction="row" alignItems="center" spacing={2}>
+                <Typography variant="h3">{transaction.title}</Typography>
+                <Chip label={transaction.category.title} size="small" />
+              </Stack>
               <Typography
                 variant="subtitle1"
                 color={
