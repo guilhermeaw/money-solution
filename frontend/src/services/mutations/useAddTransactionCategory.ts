@@ -13,7 +13,7 @@ export const useAddTransactionCategory = () => {
         })
         .then(response => response.data),
     {
-      onError: error => window.alert(error.message),
+      onError: (error: Error) => window.alert(error.message),
       onSuccess: () => window.alert('Categoria adicionada com sucesso.'),
     },
   );

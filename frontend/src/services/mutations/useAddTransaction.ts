@@ -10,7 +10,7 @@ export const useAddTransaction = () => {
       category_id,
       title,
       type,
-    }: Omit<Transaction, 'id' | 'created_at'>) =>
+    }: Omit<Transaction, 'id' | 'created_at' | 'category'>) =>
       api
         .post<Transaction>('/transactions/create', {
           amount,
@@ -20,7 +20,7 @@ export const useAddTransaction = () => {
         })
         .then(response => response.data),
     {
-      onError: error => window.alert(error.message),
+      onError: (error: Error) => window.alert(error.message),
       onSuccess: () => window.alert('Transação adicionada com sucesso.'),
     },
   );

@@ -11,5 +11,6 @@ export interface Transaction {
   amount: number;
   type: TransactionType;
   category: TransactionCategory;
+  category_id: number;
   created_at: Date;
 }
