@@ -7,14 +7,14 @@ export const useAddTransaction = () => {
   return useMutation(
     ({
       amount,
-      category,
+      category_id,
       title,
       type,
     }: Omit<Transaction, 'id' | 'created_at'>) =>
       api
         .post<Transaction>('/transactions/create', {
           amount,
-          category,
+          category_id,
           title,
           type,
         })

@@ -8,6 +8,6 @@ export interface Transaction {
   title: string;
   amount: number;
   type: TransactionType;
-  category: string;
+  category_id: number;
   created_at: Date;
 }

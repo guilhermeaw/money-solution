@@ -12,20 +12,29 @@ import {
 } from '@mui/material';
 
 import { MainContainer } from '../../components/MainContainer';
+import { SelectTransactionCategory } from '../../components/SelectTransactionCategory';
 import { TransactionType } from '../../models/Transaction';
 import { useAddTransaction } from '../../services/mutations';
+import { useFetchTransactionCategories } from '../../services/queries';
 
 const AddTransactionPage = () => {
   const titleInput = useRef(null) as RefObject<HTMLInputElement>;
-  const categoryInput = useRef(null) as RefObject<HTMLInputElement>;
   const amountInput = useRef(null) as RefObject<HTMLInputElement>;
 
+  const [selectedCategory, setSelectedCategory] = useState('');
   const [transactionType, setTransactionType] = useState(
     TransactionType.INCOME,
   );
 
   const { mutateAsync: addTransaction } = useAddTransaction();
+  const fetchTransactionCategories = useFetchTransactionCategories();
   const navigate = useNavigate();
+
+  const handleSelectCategory = (
+    event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
+  ) => {
+    setSelectedCategory(event.target.value);
+  };
 
   const handleChangeTransactionType = (
     event: ChangeEvent<HTMLInputElement>,
@@ -37,16 +46,16 @@ const AddTransactionPage = () => {
     event.preventDefault();
 
     const title = titleInput?.current?.value;
-    const category = categoryInput?.current?.value;
+    const category_id = Number(selectedCategory);
     const amount = Number(amountInput?.current?.value);
 
-    if (!title || !category || !amount) {
+    if (!title || !category_id || !amount) {
       return;
     }
 
     await addTransaction({
       title,
-      category,
+      category_id,
       amount,
       type: transactionType,
     });
@@ -72,14 +81,11 @@ const AddTransactionPage = () => {
           fullWidth
         />
 
-        <TextField
-          label="Categoria"
-          sx={{ background: '#fff' }}
-          size="small"
-          margin="dense"
-          inputRef={categoryInput}
+        <SelectTransactionCategory
+          value={selectedCategory}
+          onChange={handleSelectCategory}
+          query={fetchTransactionCategories}
           required
-          fullWidth
         />
 
         <FormControl>

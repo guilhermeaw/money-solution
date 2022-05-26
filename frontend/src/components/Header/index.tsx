@@ -2,6 +2,7 @@ import { Button, Container, Stack, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../../store/Auth';
+import { RouterLink } from '../RouterLink';
 
 import * as S from './styles';
 
@@ -25,17 +26,19 @@ export const Header = () => {
           height: '100%',
         }}
       >
-        <Stack direction="row" alignItems="center" spacing={2}>
-          <img
-            src="src/assets/images/logo.png"
-            alt="Money Solutions logo"
-            width="48px"
-            height="48px"
-          />
-          <Typography variant="h1" fontSize="1.5rem">
-            Money Solutions
-          </Typography>
-        </Stack>
+        <RouterLink to="/">
+          <Stack direction="row" alignItems="center" spacing={2}>
+            <img
+              src="src/assets/images/logo.png"
+              alt="Money Solutions logo"
+              width="48px"
+              height="48px"
+            />
+            <Typography variant="h1" fontSize="1.5rem">
+              Money Solutions
+            </Typography>
+          </Stack>
+        </RouterLink>
 
         {user && (
           <Stack direction="row" spacing={2}>

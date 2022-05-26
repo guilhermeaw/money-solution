@@ -1,24 +1,15 @@
-import { Button, Card, IconButton, Stack, Typography } from '@mui/material';
-import { DeleteOutline as DeleteOutlineIcon } from '@mui/icons-material';
+import { Button, Stack, Typography } from '@mui/material';
+
 import { useNavigate } from 'react-router-dom';
 
 import { MainContainer } from '../../components/MainContainer';
-import { TransactionType } from '../../models/Transaction';
-import { useFetchMyTransactions } from '../../services/queries';
-import { formatCurrency } from '../../utils/formatCurrency';
-import { useDeleteTransaction } from '../../services/mutations';
+import { TransactionsList } from '../../components/TransactionsList';
 
 const HomePage = () => {
   const navigate = useNavigate();
-  const { data, isLoading } = useFetchMyTransactions();
-  const { mutateAsync: deleteTransaction } = useDeleteTransaction();
 
   const handleAddTransaction = () => {
     navigate('/add-transaction');
-  };
-
-  const handleDeleteTransaction = async (id: number) => {
-    await deleteTransaction(id);
   };
 
   return (
@@ -40,38 +31,7 @@ const HomePage = () => {
         </Button>
       </Stack>
 
-      {isLoading ? (
-        <Typography>Carregando...</Typography>
-      ) : (
-        data?.map(transaction => (
-          <Card
-            key={transaction.id}
-            sx={{ padding: '0.5rem', marginBottom: '0.5rem' }}
-          >
-            <Stack direction="row" justifyContent="space-between">
-              <Stack>
-                <Typography variant="h3">{transaction.title}</Typography>
-                <Typography
-                  variant="subtitle1"
-                  color={
-                    transaction.type === TransactionType.INCOME
-                      ? 'green'
-                      : 'red'
-                  }
-                >
-                  {formatCurrency(Number(transaction.amount))}
-                </Typography>
-              </Stack>
-
-              <IconButton
-                onClick={() => handleDeleteTransaction(transaction.id)}
-              >
-                <DeleteOutlineIcon />
-              </IconButton>
-            </Stack>
-          </Card>
-        ))
-      )}
+      <TransactionsList />
     </MainContainer>
   );
 };
