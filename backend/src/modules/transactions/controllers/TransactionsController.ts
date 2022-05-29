@@ -1,5 +1,6 @@
 import { instanceToPlain } from 'class-transformer';
 import { Request, Response } from 'express';
+import { container } from 'tsyringe';
 
 import CreateTransactionService from '../services/CreateTransactionService';
 import DeleteTransactionService from '../services/DeleteTransactionService';
@@ -10,7 +11,9 @@ export default class TransactionsController {
     const user_id = request.user.id;
     const { title, amount, type, category_id } = request.body;
 
-    const transaction = await new CreateTransactionService().execute({
+    const createTransaction = container.resolve(CreateTransactionService);
+
+    const transaction = await createTransaction.execute({
       amount,
       category_id,
       title,
@@ -24,7 +27,9 @@ export default class TransactionsController {
   public async delete(request: Request, response: Response): Promise<Response> {
     const { id } = request.params;
 
-    await new DeleteTransactionService().execute(id);
+    const deleteTransaction = container.resolve(DeleteTransactionService);
+
+    await deleteTransaction.execute(id);
 
     return response.status(204).json();
   }
@@ -32,7 +37,9 @@ export default class TransactionsController {
   public async listMy(request: Request, response: Response): Promise<Response> {
     const user_id = request.user.id;
 
-    const transaction = await new ListMyTransactionsService().execute({
+    const listMyTransactions = container.resolve(ListMyTransactionsService);
+
+    const transaction = await listMyTransactions.execute({
       user_id: Number(user_id),
     });
 

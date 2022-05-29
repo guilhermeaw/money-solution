@@ -1,4 +1,4 @@
-import Transaction from '../entities/Transaction';
+import Transaction from '../infra/typeorm/entities/Transaction';
 
 export type ICreateTransactionDTO = Omit<
   Transaction,

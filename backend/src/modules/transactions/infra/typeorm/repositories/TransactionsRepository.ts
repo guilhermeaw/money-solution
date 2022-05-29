@@ -25,6 +25,14 @@ export default class TransactionsRepository implements ITransactionsRepository {
     this.ormRepository.delete({ id });
   }
 
+  public async findById(id: number): Promise<Transaction | null> {
+    return this.ormRepository.findOne({
+      where: {
+        id,
+      },
+    });
+  }
+
   public async listByUserId(user_id: number): Promise<Transaction[]> {
     return this.ormRepository.find({
       where: {

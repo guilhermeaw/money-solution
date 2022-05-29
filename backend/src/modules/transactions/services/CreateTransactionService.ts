@@ -1,13 +1,15 @@
+import { inject, injectable } from 'tsyringe';
+
 import { ICreateTransactionDTO } from '../dtos/ICreateTransactionDTO';
 import Transaction from '../infra/typeorm/entities/Transaction';
-import TransactionsRepository from '../infra/typeorm/repositories/TransactionsRepository';
+import ITransactionsRepository from '../repositories/ITransactionsRepository';
 
+@injectable()
 export default class CreateTransactionService {
-  private transactionsRepository: TransactionsRepository;
-
-  constructor() {
-    this.transactionsRepository = new TransactionsRepository();
-  }
+  constructor(
+    @inject('TransactionsRepository')
+    private transactionsRepository: ITransactionsRepository,
+  ) {}
 
   public async execute({
     amount,
