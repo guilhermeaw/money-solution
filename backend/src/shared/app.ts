@@ -6,6 +6,8 @@ import { initializeDataSource } from './database/ormconfig';
 import errors from './middlewares/errors';
 import routes from './routes';
 
+import '@shared/container';
+
 initializeDataSource();
 
 const app = express();
