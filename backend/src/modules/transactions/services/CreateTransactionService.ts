@@ -1,6 +1,6 @@
 import { ICreateTransactionDTO } from '../dtos/ICreateTransactionDTO';
-import Transaction from '../entities/Transaction';
-import TransactionsRepository from '../repositories/TransactionsRepository';
+import Transaction from '../infra/typeorm/entities/Transaction';
+import TransactionsRepository from '../infra/typeorm/repositories/TransactionsRepository';
 
 export default class CreateTransactionService {
   private transactionsRepository: TransactionsRepository;

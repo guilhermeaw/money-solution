@@ -1,5 +1,5 @@
 import AppError from '@shared/errors/AppError';
-import TransactionsRepository from '../repositories/TransactionsRepository';
+import TransactionsRepository from '../infra/typeorm/repositories/TransactionsRepository';
 
 export default class DeleteTransactionService {
   private transactionsRepository: TransactionsRepository;

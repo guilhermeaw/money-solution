@@ -1,10 +1,11 @@
 import { Repository } from 'typeorm';
 
 import AppDataSource from '@shared/database/ormconfig';
+import { ICreateTransactionDTO } from '@modules/transactions/dtos/ICreateTransactionDTO';
+import ITransactionsRepository from '@modules/transactions/repositories/ITransactionsRepository';
 import Transaction from '../entities/Transaction';
-import { ICreateTransactionDTO } from '../dtos/ICreateTransactionDTO';
 
-export default class TransactionsRepository {
+export default class TransactionsRepository implements ITransactionsRepository {
   private ormRepository: Repository<Transaction>;
 
   constructor() {

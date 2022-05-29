@@ -1,5 +1,5 @@
-import TransactionCategory from '../entities/TransactionCategory';
-import TransactionCategoriesRepository from '../repositories/TransactionCategoriesRepository';
+import TransactionCategory from '../infra/typeorm/entities/TransactionCategory';
+import TransactionCategoriesRepository from '../infra/typeorm/repositories/TransactionCategoriesRepository';
 
 export default class ListAllTransactionCategoriesService {
   private transactionCategoriesRepository: TransactionCategoriesRepository;

@@ -1,9 +1,12 @@
 import { Repository } from 'typeorm';
 
 import AppDataSource from '@shared/database/ormconfig';
+import ITransactionCategoriesRepository from '@modules/transactions/repositories/ITransactionCategoriesRepository';
 import TransactionCategory from '../entities/TransactionCategory';
 
-export default class TransactionCategoriesRepository {
+export default class TransactionCategoriesRepository
+  implements ITransactionCategoriesRepository
+{
   private ormRepository: Repository<TransactionCategory>;
 
   constructor() {

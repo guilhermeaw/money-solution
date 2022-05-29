@@ -1,6 +1,6 @@
 import AppError from '@shared/errors/AppError';
-import TransactionCategory from '../entities/TransactionCategory';
-import TransactionCategoriesRepository from '../repositories/TransactionCategoriesRepository';
+import TransactionCategory from '../infra/typeorm/entities/TransactionCategory';
+import TransactionCategoriesRepository from '../infra/typeorm/repositories/TransactionCategoriesRepository';
 
 export default class CreateTransactionCategoryService {
   private transactionCategoriesRepository: TransactionCategoriesRepository;
