@@ -3,11 +3,11 @@ import { DataSource } from 'typeorm';
 const AppDataSource = new DataSource({
   name: 'default',
   type: 'postgres',
-  host: 'localhost',
-  port: 5432,
-  username: 'postgres',
-  password: 'postgres',
-  database: 'money-solutions',
+  host: process.env.POSTGRES_HOST,
+  port: Number(process.env.POSTGRES_PORT),
+  username: process.env.POSTGRES_USER,
+  password: process.env.POSTGRES_PASS,
+  database: process.env.POSTGRES_DATABASE,
   entities: ['src/modules/**/entities/*.ts'],
   synchronize: true,
 });
