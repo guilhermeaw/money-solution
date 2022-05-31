@@ -21,7 +21,7 @@ export const TransactionsList = () => {
     return (
       <Stack alignItems="center" width="100%" marginTop="1rem">
         <img
-          src="src/assets/images/no-transactions.svg"
+          src="/assets/images/no-transactions.svg"
           width="400px"
           alt="Sem transações cadastradas"
         />

@@ -26,7 +26,7 @@ export const Header = () => {
         <RouterLink to="/">
           <Stack direction="row" alignItems="center" spacing={2}>
             <img
-              src="src/assets/images/logo.png"
+              src="/assets/images/logo.png"
               alt="Money Solutions logo"
               width="48px"
               height="48px"
