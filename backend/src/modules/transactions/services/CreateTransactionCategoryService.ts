@@ -17,6 +17,8 @@ export default class CreateTransactionCategoryService {
     const categoryAlreadyExists =
       await this.transactionCategoriesRepository.findByTitle(title);
 
+    console.log({ categoryAlreadyExists });
+
     if (categoryAlreadyExists) {
       throw new AppError('Já existe uma categoria com este nome.');
     }

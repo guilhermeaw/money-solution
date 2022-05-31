@@ -4,6 +4,6 @@ export default interface ITransactionCategoriesRepository {
   create(
     categoryData: Omit<TransactionCategory, 'id'>,
   ): Promise<TransactionCategory>;
-  findByTitle(title: string): Promise<TransactionCategory[]>;
+  findByTitle(title: string): Promise<TransactionCategory | null>;
   listAll(): Promise<TransactionCategory[]>;
 }
