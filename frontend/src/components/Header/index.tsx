@@ -1,5 +1,4 @@
 import { Button, Container, Stack, Typography } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../../store/Auth';
 import { RouterLink } from '../RouterLink';
