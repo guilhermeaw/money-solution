@@ -8,11 +8,9 @@ import * as S from './styles';
 
 export const Header = () => {
   const { user, signOut } = useAuth();
-  const navigate = useNavigate();
 
   const handleLogout = () => {
     signOut();
-    navigate('/login');
   };
 
   return (
