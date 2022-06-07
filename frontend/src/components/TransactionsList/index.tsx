@@ -1,17 +1,10 @@
-import { Card, Chip, IconButton, Stack, Typography } from '@mui/material';
-import { DeleteOutline as DeleteOutlineIcon } from '@mui/icons-material';
+import { Stack, Typography } from '@mui/material';
 
-import { TransactionType } from '../../models/Transaction';
 import { useFetchMyTransactions } from '../../services/queries';
-import { useDeleteTransaction } from '../../services/mutations';
+import { TransactionItem } from './TransactionItem';
 
 export const TransactionsList = () => {
   const { data: transactions, isLoading } = useFetchMyTransactions();
-  const { mutateAsync: deleteTransaction } = useDeleteTransaction();
-
-  const handleDeleteTransaction = async (id: number) => {
-    await deleteTransaction(id);
-  };
 
   if (isLoading) {
     return <Typography>Carregando...</Typography>;
@@ -37,31 +30,7 @@ export const TransactionsList = () => {
   return (
     <>
       {transactions.map(transaction => (
-        <Card
-          key={transaction.id}
-          sx={{ padding: '0.5rem', marginBottom: '0.5rem' }}
-        >
-          <Stack direction="row" justifyContent="space-between">
-            <Stack>
-              <Stack direction="row" alignItems="center" spacing={2}>
-                <Typography variant="h3">{transaction.title}</Typography>
-                <Chip label={transaction.category.title} size="small" />
-              </Stack>
-              <Typography
-                variant="subtitle1"
-                color={
-                  transaction.type === TransactionType.INCOME ? 'green' : 'red'
-                }
-              >
-                {transaction.amount}
-              </Typography>
-            </Stack>
-
-            <IconButton onClick={() => handleDeleteTransaction(transaction.id)}>
-              <DeleteOutlineIcon />
-            </IconButton>
-          </Stack>
-        </Card>
+        <TransactionItem key={transaction.id} transaction={transaction} />
       ))}
     </>
   );
