@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WithoutTransactions component should render correctly 1`] = `
+<div
+  class="MuiStack-root-fLKvZh iZsUYB"
+>
+  <img
+    alt="Sem transações cadastradas"
+    src="/assets/images/no-transactions.svg"
+    width="400px"
+  />
+  <h2
+    class="MuiTypography-root-bXavBU kJcdFH MuiTypography-root MuiTypography-h2"
+  >
+    Que pena...
+  </h2>
+  <h6
+    class="MuiTypography-root-bXavBU dWiFMB MuiTypography-root MuiTypography-subtitle1"
+  >
+    Parece que você ainda não possui transações cadastradas
+  </h6>
+</div>
+`;
