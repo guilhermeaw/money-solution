@@ -1,3 +1,4 @@
+import { useSnackbar } from 'notistack';
 import { useQuery } from 'react-query';
 
 import { TransactionCategory } from '../../models/TransactionCategory';
