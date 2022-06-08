@@ -4,7 +4,7 @@ import { DeleteOutline as DeleteOutlineIcon } from '@mui/icons-material';
 import { Transaction, TransactionType } from '../../../models/Transaction';
 import { useDeleteTransaction } from '../../../services/mutations';
 
-type TransactionItemProps = {
+export type TransactionItemProps = {
   transaction: Transaction;
 };
 
@@ -36,7 +36,10 @@ export const TransactionItem = ({ transaction }: TransactionItemProps) => {
           </Typography>
         </Stack>
 
-        <IconButton onClick={() => handleDeleteTransaction(transaction.id)}>
+        <IconButton
+          aria-label="Deletar transação"
+          onClick={() => handleDeleteTransaction(transaction.id)}
+        >
           <DeleteOutlineIcon />
         </IconButton>
       </Stack>

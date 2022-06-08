@@ -1,3 +1,5 @@
+import { Transaction } from '../models/Transaction';
+
 export const mockTransactions = [
   {
     id: 1,
@@ -17,4 +19,4 @@ export const mockTransactions = [
     category_id: 2,
     created_at: new Date(),
   },
-];
+] as Transaction[];
