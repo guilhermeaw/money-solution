@@ -1,7 +1,7 @@
 import { ContentContainer } from '../ContentContainer';
 import { Header } from '../Header';
 
-type ContainerProps = {
+export type ContainerProps = {
   children: React.ReactNode;
 };
 
