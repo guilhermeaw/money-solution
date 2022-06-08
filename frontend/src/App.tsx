@@ -1,4 +1,5 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
+import { SnackbarProvider } from 'notistack';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 import { Routes } from './routes';
@@ -11,7 +12,9 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <QueryClientProvider client={new QueryClient()}>
         <AuthProvider>
-          <Routes />
+          <SnackbarProvider maxSnack={3}>
+            <Routes />
+          </SnackbarProvider>
         </AuthProvider>
       </QueryClientProvider>
 
