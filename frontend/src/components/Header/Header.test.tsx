@@ -4,7 +4,6 @@ import { MemoryRouter } from 'react-router-dom';
 
 import { Header } from '.';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const useAuthMock = jest.spyOn(require('../../store/Auth'), 'useAuth');
 
 const createComponent = () => {
