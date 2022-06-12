@@ -1,5 +1,7 @@
 import { DataSource } from 'typeorm';
 
+const entitiesPreffix = process.env.NODE_ENV === 'dev' ? 'src' : 'dist';
+
 const AppDataSource = new DataSource({
   name: 'default',
   type: 'postgres',
@@ -7,8 +9,8 @@ const AppDataSource = new DataSource({
   port: Number(process.env.POSTGRES_PORT),
   username: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASS,
-  database: process.env.POSTGRES_DATABASE,
-  entities: ['src/modules/**/entities/*.ts'],
+  database: process.env.POSTGRES_DB,
+  entities: [`${entitiesPreffix}/modules/**/entities/*.ts`],
   synchronize: true,
 });
 

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --no-notify --ignore-watch node_modules src/shared/server.ts",
-    "start": "node src/shared/server.js",
+    "start": "node dist/shared/server.js",
     "typeorm": "ts-node-dev --transpile-only ./node_modules/typeorm/cli.js",
     "migration:run": "typeorm-ts-node-commonjs -d src/shared/database/ormconfig.ts migration:run",
     "migration:revert": "typeorm-ts-node-commonjs -d src/shared/database/ormconfig.ts migration:revert",
