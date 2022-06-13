@@ -14,4 +14,5 @@ COPY --chown=node:node . .
 
 EXPOSE 3000
 
-ENTRYPOINT [ "./scripts/start.sh" ]
+# ENTRYPOINT [ "./scripts/start.sh" ]
+CMD [ "yarn", "start" ]
