@@ -10,10 +10,8 @@ USER node
 
 RUN yarn
 
-COPY . .
+COPY --chown=node:node . .
 
 EXPOSE 3000
 
-CMD [ "yarn", "dev" ]
-
-# ENTRYPOINT [ "./scripts/start.sh" ]
+ENTRYPOINT [ "./scripts/start.sh" ]
