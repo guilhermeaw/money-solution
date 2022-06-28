@@ -17,7 +17,6 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - uses: actions/checkout@v3
@@ -30,8 +29,10 @@ jobs:
     - name: Install dependencies
       run: |
         yarn install
+
+    - name: Test application
+      run: yarn test
+
+    - name: Build application
+      run: yarn build
         
-    - name: Build and test
-      run: |
-        yarn build
-        yarn test
