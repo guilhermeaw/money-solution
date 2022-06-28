@@ -40,4 +40,4 @@ jobs:
       - name: Restart server application
         run: |
           docker-compose down
-          docker-compose up --build
+          docker-compose up --build -d
