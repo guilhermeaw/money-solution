@@ -1,6 +1,6 @@
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { SnackbarProvider } from 'notistack';
-import { QueryClient, QueryClientProvider } from 'react-query';
 
 import { Routes } from './routes';
 import { AuthProvider } from './store/Auth';
