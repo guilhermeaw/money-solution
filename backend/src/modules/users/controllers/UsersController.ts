@@ -15,8 +15,4 @@ export default class UsersController {
 
     return response.json(instanceToPlain(user));
   }
-
-  public async test(request: Request, response: Response): Promise<Response> {
-    return response.json({ arroz: true });
-  }
 }
